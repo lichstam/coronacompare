@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint ./project-files/**/*.ts*",
     "build": "parcel build --public-url ./dist/ ./src/client/index.html",
-    "start": "yarn build && babel-node --extensions '.ts,.tsx' ./src/server/server.ts"
+    "start": "babel-node --extensions '.ts,.tsx' ./src/server/server.ts"
   },
   "author": "",
   "license": "MIT",
