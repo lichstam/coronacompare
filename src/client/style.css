@@ -1,0 +1,21 @@
+.app {
+  font-family: Roboto;
+  text-align: center;
+}
+
+.app__wrapper {
+  display: flex;
+  padding: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.app__chart-wrapper {
+  padding: 24px;
+}
+
+.app__form {
+  text-align: center;
+}
