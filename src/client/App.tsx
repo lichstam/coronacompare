@@ -3,6 +3,7 @@ import superagent from 'superagent';
 import { omit } from 'ramda';
 import CoronaChart from './components/CoronaChart';
 import baseUrl from './constants';
+import getAggregated from './utils/get-aggregated';
 
 const getPureData = omit(['Province/State', 'Country/Region', 'Lat', 'Long']);
 const stringToNumbers = (data) => Object.values(data).map(Number);
@@ -13,12 +14,14 @@ const countries = [
   { country: 'Germany', slice: 10 },
   { country: 'Austria', slice: 8 },
   { country: 'Spain', slice: 5 },
-  { country: 'Sweden', slice: 0 },
+  { country: 'Sweden', slice: 7 },
   { country: 'United Kingdom', slice: 10 },
   { country: 'France', slice: 10 },
   { country: 'Poland', slice: 0 },
   { country: 'Switzerland', slice: 2 },
   { country: 'Iceland', slice: 6 },
+  { country: 'US', slice: 13 },
+  { country: 'Canada', slice: 22 },
 ];
 
 const App = () => {
@@ -27,14 +30,12 @@ const App = () => {
   useEffect(() => {
     superagent.get(`${baseUrl}/stats/`)
       .then((res) => {
-        setStats(JSON.parse(res.text));
+        const rawStats = JSON.parse(res.text);
+        setStats(getAggregated(rawStats));
       });
   }, []);
 
-  const findCountryData = (country) => stats.find((stat) => (
-    stat['Province/State'] === country
-    || stat['Province/State'] === '')
-    && stat['Country/Region'] === country) || [];
+  const findCountryData = (country) => stats.find((stat) => stat['Country/Region'] === country) || [];
 
   const base = findCountryData('Italy');
   const pureBase = getPureData(base);

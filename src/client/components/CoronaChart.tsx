@@ -30,6 +30,12 @@ const CoronaChart = ({
       text: 'vs Italy',
     },
 
+    xAxis: {
+      title: {
+        text: 'Days',
+      },
+    },
+
     yAxis: {
       title: {
         text: 'Registered cases',
