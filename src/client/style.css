@@ -8,14 +8,21 @@
   padding: 18px;
   flex-wrap: wrap;
   justify-content: center;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
 }
 
 .app__chart-wrapper {
   padding: 24px;
+  height: 100%;
+  width: 100%;
 }
 
 .app__form {
   text-align: center;
 }
+
+@media screen and (min-width: 700px) {
+  .app__chart-wrapper {
+    width: 40%;
+  }
+}
+
