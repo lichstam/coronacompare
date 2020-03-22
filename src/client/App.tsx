@@ -10,10 +10,15 @@ const removeZeros = (data) => data.filter(Boolean);
 const removeDuplicates = (data) => data.filter((item, i) => data[i + 1] !== item);
 
 const countries = [
-  { country: 'Sweden', slice: 0 },
   { country: 'Germany', slice: 10 },
+  { country: 'Austria', slice: 8 },
   { country: 'Spain', slice: 5 },
+  { country: 'Sweden', slice: 0 },
+  { country: 'United Kingdom', slice: 10 },
+  { country: 'France', slice: 10 },
   { country: 'Poland', slice: 0 },
+  { country: 'Switzerland', slice: 2 },
+  { country: 'Iceland', slice: 6 },
 ];
 
 const App = () => {
@@ -26,7 +31,10 @@ const App = () => {
       });
   }, []);
 
-  const findCountryData = (country) => stats.find((stat) => stat['Country/Region'] === country) || [];
+  const findCountryData = (country) => stats.find((stat) => (
+    stat['Province/State'] === country
+    || stat['Province/State'] === '')
+    && stat['Country/Region'] === country) || [];
 
   const base = findCountryData('Italy');
   const pureBase = getPureData(base);
