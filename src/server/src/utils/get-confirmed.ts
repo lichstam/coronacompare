@@ -1,10 +1,4 @@
-import csv from 'csvtojson';
-import superagent from 'superagent';
 import { confirmedCasesUrl } from '../../constants';
+import getCSVFromUrl from './get-csv-from-url';
 
-const getConfirmed = async () => {
-  const res: any = superagent.get(confirmedCasesUrl);
-  return csv().fromStream(res);
-};
-
-export default getConfirmed;
+export default getCSVFromUrl(confirmedCasesUrl);

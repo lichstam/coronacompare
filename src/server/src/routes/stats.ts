@@ -1,16 +1,14 @@
 import express from 'express';
-import { getConfirmed, getPopulation } from '../utils';
+import endpoints from './endpoints';
 
 const router = express.Router();
 
-router.get('/population', async (req, res) => {
-  const stats = await getPopulation();
-  res.json(stats);
+endpoints.forEach(({ endpoint, fn }) => {
+  router.get(endpoint, async (req, res) => {
+    const stats = await fn();
+    res.json(stats);
+  });
 });
 
-router.get('/confirmed', async (req, res) => {
-  const stats = await getConfirmed();
-  res.json(stats);
-});
 
 export default router;
