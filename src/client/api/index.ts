@@ -1,16 +1,21 @@
 import superagent from 'superagent';
 import baseUrl from '../constants';
-import getAggregated from '../utils/get-aggregated';
+import getAggregatedBy from '../utils/get-aggregated';
 
-export const getPopulation = () => superagent.get(`${baseUrl}/stats/population`)
+const getUrl = (type: string) => `${baseUrl}/stats/${type}`;
+
+const getData = (typeOfData: string) => superagent.get(getUrl(typeOfData))
   .then((res) => JSON.parse(res.text));
 
-export const getAggregatedData = (typeOfData: string) => {
-  const getAggregatedByCountry = getAggregated('Country/Region');
-  return superagent.get(`${baseUrl}/stats/${typeOfData}`)
+const getAggregatedData = (typeOfData: string) => {
+  const getAggregatedByCountry = getAggregatedBy('Country/Region');
+  return superagent.get(getUrl(typeOfData))
     .then((res) => {
       const rawStats = JSON.parse(res.text);
       return getAggregatedByCountry(rawStats);
     });
 };
 
+export const getDeaths = () => getAggregatedData('deaths');
+export const getConfirmed = () => getAggregatedData('confirmed');
+export const getPopulation = () => getData('population');

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { omit } from 'ramda';
 import CoronaChart from './components/CoronaChart';
 import countries from './countries';
-import { getAggregatedData, getPopulation } from './api';
+import { getDeaths, getConfirmed, getPopulation } from './api';
 
 const getPureData = omit(['Province/State', 'Country/Region', 'Lat', 'Long']);
 const stringToNumbers = (data: []) => Object.values(data).map(Number);
@@ -15,8 +15,8 @@ const App = () => {
   const [deaths, setDeaths] = useState([]);
 
   useEffect(() => {
-    getAggregatedData('confirmed').then(setConfirmed);
-    getAggregatedData('deaths').then(setDeaths);
+    getConfirmed().then(setConfirmed);
+    getDeaths().then(setDeaths);
     getPopulation().then(setPopulation);
   }, []);
 
