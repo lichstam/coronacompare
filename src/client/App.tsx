@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { omit } from 'ramda';
 import CoronaChart from './components/CoronaChart';
 import countries from './countries';
-import { getConfirmed, getPopulation } from './api';
+import { getAggregatedData, getPopulation } from './api';
 
 const getPureData = omit(['Province/State', 'Country/Region', 'Lat', 'Long']);
 const stringToNumbers = (data: []) => Object.values(data).map(Number);
@@ -12,10 +12,12 @@ const removeDuplicates = (data: number[]) => data.filter((item, i) => data[i + 1
 const App = () => {
   const [confirmed, setConfirmed] = useState([]);
   const [population, setPopulation] = useState([]);
+  const [deaths, setDeaths] = useState([]);
 
   useEffect(() => {
-    getConfirmed(setConfirmed);
-    getPopulation(setPopulation);
+    getAggregatedData('confirmed').then(setConfirmed);
+    getAggregatedData('deaths').then(setDeaths);
+    getPopulation().then(setPopulation);
   }, []);
 
   const findCountryData = (country: string) => confirmed.find((stat) => stat['Country/Region'] === country);

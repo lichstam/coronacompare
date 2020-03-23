@@ -2,20 +2,15 @@ import superagent from 'superagent';
 import baseUrl from '../constants';
 import getAggregated from '../utils/get-aggregated';
 
-export const getPopulation = (setPopulation) => {
-  superagent.get(`${baseUrl}/stats/population`)
-    .then((res) => {
-      const stats = JSON.parse(res.text);
-      setPopulation(stats);
-    });
-};
+export const getPopulation = () => superagent.get(`${baseUrl}/stats/population`)
+  .then((res) => JSON.parse(res.text));
 
-export const getConfirmed = (setConfirmed) => {
+export const getAggregatedData = (typeOfData: string) => {
   const getAggregatedByCountry = getAggregated('Country/Region');
-  superagent.get(`${baseUrl}/stats/confirmed`)
+  return superagent.get(`${baseUrl}/stats/${typeOfData}`)
     .then((res) => {
       const rawStats = JSON.parse(res.text);
-      setConfirmed(getAggregatedByCountry(rawStats));
+      return getAggregatedByCountry(rawStats);
     });
 };
 
