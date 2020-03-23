@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CoronaCharts from './components/CoronaCharts';
+import DeathCharts from './components/DeathCharts';
 import { getDeaths, getConfirmed, getPopulation } from './api';
-
-{ /* import DeathChart from './components/DeathChart'; */ }
 
 const App = () => {
   const [confirmed, setConfirmed] = useState([]);
@@ -21,6 +20,10 @@ const App = () => {
       <h5>Source: Johns Hopkins, https://github.com/CSSEGISandData/COVID-19</h5>
       <div className="app__wrapper">
         <CoronaCharts confirmed={confirmed} />
+      </div>
+      <h1>Coronavirus deaths</h1>
+      <div className="app__wrapper">
+        <DeathCharts deaths={deaths} population={population} />
       </div>
     </div>
   );

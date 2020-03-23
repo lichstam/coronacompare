@@ -1,13 +1,13 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import countries from '../countries';
+import countries from './countries';
 import {
   getPureData,
   stringToNumbers,
   removeZeros,
   removeDuplicates,
-} from '../utils';
+} from '../../utils';
 
 
 interface CoronaChartProps {

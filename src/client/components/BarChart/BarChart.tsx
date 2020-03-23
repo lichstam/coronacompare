@@ -2,36 +2,38 @@ import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-interface CoronaChartProps {
-  deaths: any[]
-  population: any[]
+interface BarChartProps {
+  yValues: number[]
+  xValues: string[]
+  title: string
 }
 
-const CoronaChart = ({
-  deaths,
-  population,
-}: CoronaChartProps) => {
+const BarChart = ({
+  yValues,
+  xValues,
+  title,
+}: BarChartProps) => {
   const options: Highcharts.Options = {
     credits: { enabled: false },
     legend: { enabled: false },
-    title: undefined,
+    title: { text: title },
     chart: {
       backgroundColor: 'transparent',
       type: 'column',
-      height: 115,
-      marginTop: 30,
-      width: 300,
     },
     series: [{
       data: yValues,
       dataLabels: {
-        crop: false, overflow: 'none', enabled: true,
+        crop: false,
+        enabled: true,
       },
     }],
     yAxis: {
-      title: { enabled: false },
       labels: { enabled: false },
       gridLineWidth: 0,
+      title: {
+        text: 'Deaths',
+      },
     },
     xAxis: {
       categories: xValues,
@@ -47,4 +49,4 @@ const CoronaChart = ({
   );
 };
 
-export default CoronaChart;
+export default BarChart;
