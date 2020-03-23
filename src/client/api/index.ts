@@ -1,6 +1,6 @@
 import superagent from 'superagent';
 import baseUrl from '../constants';
-import getAggregatedBy from '../utils/get-aggregated';
+import { getAggregatedBy } from '../utils';
 
 const getUrl = (type: string) => `${baseUrl}/stats/${type}`;
 

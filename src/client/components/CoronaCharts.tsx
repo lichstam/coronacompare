@@ -1,6 +1,14 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import countries from '../countries';
+import {
+  getPureData,
+  stringToNumbers,
+  removeZeros,
+  removeDuplicates,
+} from '../utils';
+
 
 interface CoronaChartProps {
   country: string
@@ -94,9 +102,7 @@ const CoronaChart = ({
         },
       }],
     },
-
   };
-
   return (
     <HighchartsReact
       highcharts={Highcharts}
@@ -105,4 +111,33 @@ const CoronaChart = ({
   );
 };
 
-export default CoronaChart;
+
+const CoronaCharts = ({ confirmed }: { confirmed: any[] }) => {
+  const findCountryData = (country: string) => confirmed
+    .find((stat) => stat['Country/Region'] === country);
+
+  const base = findCountryData('Italy');
+  const pureBase = getPureData(base);
+
+  return (
+    <>
+      {countries.map(({ country, offset }) => {
+        const countryData = findCountryData(country);
+        const pureCountry = getPureData(countryData);
+        return (
+          <div key={country} className="app__chart-wrapper">
+            <CoronaChart
+              baseCountry="Italy"
+              country={country}
+              baseData={removeDuplicates(removeZeros(stringToNumbers(pureBase)))}
+              countryData={removeDuplicates(removeZeros(stringToNumbers(pureCountry)))
+                .slice(offset)}
+            />
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
+export default CoronaCharts;
