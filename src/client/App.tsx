@@ -31,6 +31,7 @@ const App = () => {
   return (
     <div className="app">
       <h1>Coronavirus development in various countries</h1>
+      <h5>Source: Johns Hopkins, https://github.com/CSSEGISandData/COVID-19</h5>
       <div className="app__wrapper">
         {countries.map(({ country, offset }) => {
           const countryData = findCountryData(country);
