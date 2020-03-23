@@ -1,29 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import superagent from 'superagent';
 import { omit } from 'ramda';
 import CoronaChart from './components/CoronaChart';
-import baseUrl from './constants';
-import getAggregated from './utils/get-aggregated';
 import countries from './countries';
+import { getConfirmed, getPopulation } from './api';
 
 const getPureData = omit(['Province/State', 'Country/Region', 'Lat', 'Long']);
 const stringToNumbers = (data: []) => Object.values(data).map(Number);
 const removeZeros = (data: number[]) => data.filter(Boolean);
 const removeDuplicates = (data: number[]) => data.filter((item, i) => data[i + 1] !== item);
-const getAggregatedByCountry = getAggregated('Country/Region');
 
 const App = () => {
-  const [stats, setStats] = useState([]);
+  const [confirmed, setConfirmed] = useState([]);
+  const [population, setPopulation] = useState([]);
 
   useEffect(() => {
-    superagent.get(`${baseUrl}/stats/`)
-      .then((res) => {
-        const rawStats = JSON.parse(res.text);
-        setStats(getAggregatedByCountry(rawStats));
-      });
+    getConfirmed(setConfirmed);
+    getPopulation(setPopulation);
   }, []);
 
-  const findCountryData = (country: string) => stats.find((stat) => stat['Country/Region'] === country);
+  const findCountryData = (country: string) => confirmed.find((stat) => stat['Country/Region'] === country);
 
   const base = findCountryData('Italy');
   const pureBase = getPureData(base);
