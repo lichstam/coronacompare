@@ -19,7 +19,12 @@ const CoronaChart = ({
     credits: { enabled: false },
     chart: {
       backgroundColor: 'transparent',
-      type: 'line',
+      type: 'spline',
+    },
+
+    tooltip: {
+      shared: true,
+      crosshairs: true,
     },
 
     title: {
