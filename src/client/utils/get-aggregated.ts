@@ -11,8 +11,8 @@ import {
   identity,
 } from 'ramda';
 
-const getAggregated = pipe(
-  groupBy(prop('Country/Region')),
+const getAggregated = (propName: string) => pipe(
+  groupBy(prop(propName)),
   values,
   map(reduce(
     mergeWith(ifElse((n) => !isNaN(+n), add, identity)),
