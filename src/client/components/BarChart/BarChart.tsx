@@ -1,3 +1,6 @@
+// @ts-nocheck
+// disabling ts-check due to Highcharts
+//
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
