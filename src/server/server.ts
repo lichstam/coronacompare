@@ -16,6 +16,7 @@ const whitelist = [
   'https://www.coronalation.com',
   'https://coronalation.com',
   'https://strong-market-269209.appspot.com',
+  'http://localhost:8080',
 ];
 
 const corsConfig = {
