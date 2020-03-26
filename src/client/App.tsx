@@ -21,9 +21,9 @@ const App = () => {
       <div className="app__wrapper">
         <CoronaCharts confirmed={confirmed} />
       </div>
-      <h1>Coronavirus Deaths</h1>
+      <h1>Coronavirus Confirmed and Deaths</h1>
       <div className="app__wrapper">
-        <DeathCharts deaths={deaths} population={population} />
+        <DeathCharts confirmed={confirmed} deaths={deaths} population={population} />
       </div>
       <div className="app__wrapper">
         <HerdImmunityChart population={population} />
