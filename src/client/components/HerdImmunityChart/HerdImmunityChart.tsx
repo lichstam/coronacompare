@@ -40,12 +40,12 @@ const DeathCharts = ({ population }: DeathChartProps) => {
         <h1>Herd Immunity</h1>
         <h5>
           Infections and deaths without vaccine in order to obtain herd immunity.
-          Based on the leading experts claim that 60% of a population needs to be immune and a fatality rate of approx 1 %
+          Based on the leading experts claim that 60% of a population needs to be immune and a fatality rate of approx 1%
         </h5>
         <BarChart
           xValues={countries}
           series={series('herd', herdImmunityInfections, herdImmunityDeaths)}
-          title="How many people have to become infected/die without vaccine (log scale"
+          title="How many people have to become infected/die without vaccine (log scale)"
         />
       </div>
     </>
