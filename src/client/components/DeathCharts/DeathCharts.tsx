@@ -44,19 +44,28 @@ const DeathCharts = ({ deaths, population }: DeathChartProps) => {
   const infectedEstimation = recentDeaths
     .map((deathsInCountry: number) => deathsInCountry / 0.01);
 
+  const series = (name: string, data: number[]) => ([{
+    name,
+    data,
+    dataLabels: {
+      crop: false,
+      enabled: true,
+    },
+  }]);
+
   return (
     <>
       <div className="app__chart-wrapper">
         <BarChart
           xValues={sortedKeys(zipped(recentDeaths))}
-          yValues={sortedNumbers(recentDeaths)}
+          series={series('Deaths', sortedNumbers(recentDeaths))}
           title="Number of deaths, absolute numbers"
         />
       </div>
       <div className="app__chart-wrapper">
         <BarChart
           xValues={sortedKeys(zipped(recentDeathsPerCapita))}
-          yValues={sortedNumbers(recentDeathsPerCapita)}
+          series={series('Deaths per 100k', sortedNumbers(recentDeathsPerCapita))}
           title="Number of deaths per 100.000"
         />
       </div>
@@ -68,10 +77,15 @@ const DeathCharts = ({ deaths, population }: DeathChartProps) => {
         <p>
           It is important to bear in mind that
           there is a time lag from the moment someone becomes infected to the day they pass away of up to four weeks.
+          This means that the number of infections are probably much higher. See these numbers as
+          {' '}
+          <strong>minimum</strong>
+          {' '}
+          amount of infected.
         </p>
         <BarChart
           xValues={sortedKeys(zipped(infectedEstimation))}
-          yValues={sortedNumbers(infectedEstimation)}
+          series={series('Estimated real infections', sortedNumbers(infectedEstimation))}
           title="Estimated real cases infected"
         />
       </div>

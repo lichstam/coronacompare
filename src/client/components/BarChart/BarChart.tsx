@@ -6,15 +6,15 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 interface BarChartProps {
-  yValues: number[]
   xValues: string[]
   title: string
+  series: {}
 }
 
 const BarChart = ({
-  yValues,
   xValues,
   title,
+  series,
 }: BarChartProps) => {
   const options: Highcharts.Options = {
     credits: { enabled: false },
@@ -24,13 +24,7 @@ const BarChart = ({
       backgroundColor: 'transparent',
       type: 'bar',
     },
-    series: [{
-      data: yValues,
-      dataLabels: {
-        crop: false,
-        enabled: true,
-      },
-    }],
+    series,
     yAxis: {
       labels: { enabled: false },
       gridLineWidth: 0,

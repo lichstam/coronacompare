@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CoronaCharts from './components/CoronaCharts';
 import DeathCharts from './components/DeathCharts';
+import HerdImmunityChart from './components/HerdImmunityChart';
 import { getDeaths, getConfirmed, getPopulation } from './api';
 
 const App = () => {
@@ -23,6 +24,9 @@ const App = () => {
       <h1>Coronavirus Deaths</h1>
       <div className="app__wrapper">
         <DeathCharts deaths={deaths} population={population} />
+      </div>
+      <div className="app__wrapper">
+        <HerdImmunityChart population={population} />
       </div>
       <p>Source: Johns Hopkins, https://github.com/CSSEGISandData/COVID-19</p>
     </div>
