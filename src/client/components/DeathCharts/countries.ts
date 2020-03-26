@@ -8,11 +8,16 @@ const countries = [
   'Sweden',
   'United Kingdom',
   'France',
-  'Poland',
   'Switzerland',
   'Iceland',
   'US',
   'Canada',
+  'Poland',
+  'Netherlands',
+  'Belgium',
+  'Portugal',
+  'Denmark',
+  'Norway',
 ];
 
 export default countries;

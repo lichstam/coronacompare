@@ -22,7 +22,7 @@ const BarChart = ({
     title: { text: title },
     chart: {
       backgroundColor: 'transparent',
-      type: 'column',
+      type: 'bar',
     },
     series: [{
       data: yValues,
@@ -35,7 +35,7 @@ const BarChart = ({
       labels: { enabled: false },
       gridLineWidth: 0,
       title: {
-        text: 'Deaths',
+        enabled: false,
       },
     },
     xAxis: {

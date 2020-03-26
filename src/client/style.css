@@ -1,3 +1,7 @@
+p {
+  font-size: 10pt;
+}
+
 .app {
   font-family: Roboto;
   text-align: center;
@@ -11,7 +15,7 @@
 }
 
 .app__chart-wrapper {
-  padding: 18px 0;
+  padding: 18px 9px;
   height: 100%;
   width: 100%;
 }

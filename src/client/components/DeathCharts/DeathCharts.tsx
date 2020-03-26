@@ -41,6 +41,9 @@ const DeathCharts = ({ deaths, population }: DeathChartProps) => {
 
   const zipped = zipObj(countries);
 
+  const infectedEstimation = recentDeaths
+    .map((deathsInCountry: number) => deathsInCountry / 0.01);
+
   return (
     <>
       <div className="app__chart-wrapper">
@@ -55,6 +58,21 @@ const DeathCharts = ({ deaths, population }: DeathChartProps) => {
           xValues={sortedKeys(zipped(recentDeathsPerCapita))}
           yValues={sortedNumbers(recentDeathsPerCapita)}
           title="Number of deaths per 100.000"
+        />
+      </div>
+      <div className="app__chart-wrapper">
+        <h1>Coronavirus Estimations</h1>
+        <h5>
+          An estimation based on a 1% fatality rate and the current death numbers in various countries.
+        </h5>
+        <p>
+          It is important to bear in mind that
+          there is a time lag from the moment someone becomes infected to the day they pass away of up to four weeks.
+        </p>
+        <BarChart
+          xValues={sortedKeys(zipped(infectedEstimation))}
+          yValues={sortedNumbers(infectedEstimation)}
+          title="Estimated real cases infected"
         />
       </div>
     </>
