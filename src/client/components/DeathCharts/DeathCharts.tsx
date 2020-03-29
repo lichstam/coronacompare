@@ -9,7 +9,7 @@ import {
   keys,
 } from 'ramda';
 import BarChart from '../BarChart';
-import countries from './countries';
+import countries from '../../countries';
 
 import {
   getPureData,

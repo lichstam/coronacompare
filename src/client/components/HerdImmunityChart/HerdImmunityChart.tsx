@@ -2,7 +2,7 @@ import React from 'react';
 
 import Highcharts from 'highcharts';
 import BarChart from '../BarChart';
-import countries from './countries';
+import countries from '../../countries';
 
 interface DeathChartProps {
   population: any[]
