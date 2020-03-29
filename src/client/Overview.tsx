@@ -1,10 +1,10 @@
+import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import CoronaCharts from './components/CoronaCharts';
 import DeathCharts from './components/DeathCharts';
 import HerdImmunityChart from './components/HerdImmunityChart';
 import { getDeaths, getConfirmed, getPopulation } from './api';
-import countries from './countries';
 
 const App = () => {
   const [confirmed, setConfirmed] = useState([]);
@@ -17,13 +17,17 @@ const App = () => {
     getPopulation().then(setPopulation);
   }, []);
 
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('/sweden');
+  };
+
   return (
     <div className="container">
       <div className="app__menu">
         <Menu pageWrapId="page-wrap" outerContainerId="container" isOpen={false}>
-          {countries.map((country) => (
-            <a key="country" id="home" className="menu-item" href="/">{country}</a>
-          ))}
+          <p className="menu-item" onClick={handleClick}>Sweden</p>
         </Menu>
       </div>
       <div className="app" id="page-wrap">

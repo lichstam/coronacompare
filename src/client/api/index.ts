@@ -19,3 +19,5 @@ const getAggregatedData = (typeOfData: string) => {
 export const getDeaths = () => getAggregatedData('deaths');
 export const getConfirmed = () => getAggregatedData('confirmed');
 export const getPopulation = () => getData('population');
+export const getSweConfirmed = () => getData('swedish-confirmed');
+export const getSweDeaths = () => getData('swedish-deaths');
