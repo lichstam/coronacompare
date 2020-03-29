@@ -32,11 +32,11 @@ const Scores = () => {
       </p>
     </div>,
     <div className="country__totals">
-      <h2>Total confirmed cases</h2>
+      <h2>Total Confirmed</h2>
       <strong className="country__score">{ totals?.Today }</strong>
     </div>,
     <div className="country__totals">
-      <h2>Deaths today</h2>
+      <h2>Deaths Today</h2>
       <strong className="country__score">{ totalsDailyDeaths?.Today }</strong>
       <p className="country__sub-score">
         Yesterday:
@@ -45,7 +45,7 @@ const Scores = () => {
       </p>
     </div>,
     <div className="country__totals">
-      <h2>Total death cases</h2>
+      <h2>Total Deaths</h2>
       <strong className="country__score">{ totalsDeaths?.Today }</strong>
     </div>,
   ];

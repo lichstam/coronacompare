@@ -17,7 +17,7 @@ h1 {
 
 .app {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 60px;
   grid-area: main;
   overflow: scroll;
 }
