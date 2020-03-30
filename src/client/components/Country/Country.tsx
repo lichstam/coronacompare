@@ -29,6 +29,13 @@ const Country = ({ match }) => {
       <ConfirmedVsICUTreated confirmed={confirmed} />
       <ICUByGender ICUGender={ICUGender} />
       <DeathsByAgeChart deathsByAge={deathsByAge} />
+      <ul className="country__sources">
+        <h5>Sources:</h5>
+        <li className="country__source">https://www.folkhalsomyndigheten.se/smittskydd-beredskap/utbrott/aktuella-utbrott/covid-19/aktuellt-epidemiologiskt-lage/</li>
+        <li className="country__source">https://www.icuregswe.org/data--resultat/covid-19-i-svensk-intensivvard/</li>
+        <li className="country__source">Johns Hopkins, https://github.com/CSSEGISandData/COVID-19</li>
+        <li className="country__source">https://github.com/elinlutz/gatsby-map</li>
+      </ul>
     </div>
   );
 };

@@ -5,3 +5,12 @@
   padding: 4px;
   background-color: white;
 }
+
+.country__sources {
+  font-size: 8pt;
+  list-style: none;
+}
+
+.country__source {
+  margin-bottom: 4px;
+}
