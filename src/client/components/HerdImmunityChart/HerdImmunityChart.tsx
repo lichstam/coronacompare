@@ -36,7 +36,7 @@ const DeathCharts = ({ population }: DeathChartProps) => {
 
   return (
     <>
-      <div className="app__chart-wrapper">
+      <div>
         <h1>Herd Immunity</h1>
         <h5>
           Infections and deaths without vaccine in order to obtain herd immunity.

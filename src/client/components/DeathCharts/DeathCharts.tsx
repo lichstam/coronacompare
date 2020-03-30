@@ -89,24 +89,26 @@ const DeathCharts = ({ confirmed, deaths, population }: DeathChartProps) => {
         series={series('Deaths per 100k', sortedNumbers(recentDeathsPerCapita))}
         title="Number of deaths per 100.000"
       />
-      <h1>Coronavirus Estimations</h1>
-      <h5>
-        An estimation based on a 1% fatality rate and the current death numbers in various countries.
-      </h5>
-      <p>
-        It is important to bear in mind that
-        there is a time lag from the moment someone becomes infected to the day they pass away of up to four weeks.
-        This means that the number of infections are probably much higher. See these numbers as
-        {' '}
-        <strong>minimum</strong>
-        {' '}
-        amount of infected.
-      </p>
-      <BarChart
-        xValues={sortedKeys(zipped(infectedEstimation))}
-        series={series('Estimated real infections', sortedNumbers(infectedEstimation))}
-        title="Estimated real cases infected"
-      />
+      <div>
+        <h1>Coronavirus Estimations</h1>
+        <h5>
+          An estimation based on a 1% fatality rate and the current death numbers in various countries.
+        </h5>
+        <p>
+          It is important to bear in mind that
+          there is a time lag from the moment someone becomes infected to the day they pass away of up to four weeks.
+          This means that the number of infections are probably much higher. See these numbers as
+          {' '}
+          <strong>minimum</strong>
+          {' '}
+          amount of infected.
+        </p>
+        <BarChart
+          xValues={sortedKeys(zipped(infectedEstimation))}
+          series={series('Estimated real infections', sortedNumbers(infectedEstimation))}
+          title="Estimated real cases infected"
+        />
+      </div>
     </>
   );
 };
