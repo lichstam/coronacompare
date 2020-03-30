@@ -38,7 +38,7 @@ const ConfirmedVsICUTreated = ({ confirmed }: ConfirmedVsICUTreatedProps) => {
 
   return (
     <div>
-      <BarChart xValues={dates.reverse()} title="Confirmed cases and ICU patients" series={series} />
+      <BarChart xValues={dates.reverse()} title="Confirmed Cases and ICU Patients" series={series} />
     </div>
   );
 };

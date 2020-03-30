@@ -2,7 +2,11 @@ import React from 'react';
 import { values as RValues } from 'ramda';
 import BarChart from '../../../BarChart';
 
-const DeathsByAgeChart = ({ deathsByAge }) => {
+interface DeathsByAgeChartProps {
+  deathsByAge: any[]
+}
+
+const DeathsByAgeChart = ({ deathsByAge }: DeathsByAgeChartProps) => {
   const values = [];
   const ages = [];
 
@@ -23,7 +27,7 @@ const DeathsByAgeChart = ({ deathsByAge }) => {
 
   return (
     <div>
-      <BarChart xValues={ages} title="Deaths by age group (Swedish labels)" series={series} />
+      <BarChart xValues={ages} title="Deaths by Age Group (Swedish Labels)" series={series} />
     </div>
   );
 };
