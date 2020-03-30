@@ -3,7 +3,7 @@ import { getSweICUTimeseries } from '../../../../api';
 import BarChart from '../../../BarChart';
 
 interface ConfirmedVsICUTreatedProps {
-  confirmed: []
+  confirmed: any[]
 }
 
 const ConfirmedVsICUTreated = ({ confirmed }: ConfirmedVsICUTreatedProps) => {

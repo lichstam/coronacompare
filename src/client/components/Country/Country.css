@@ -1,8 +1,7 @@
 .country {
   display: grid;
-  grid-gap: 70px;
+  grid-gap: 60px;
   justify-items: center;
-  width: 100%;
-  padding: 18px;
+  padding: 4px;
   background-color: white;
 }
