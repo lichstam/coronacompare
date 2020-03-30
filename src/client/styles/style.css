@@ -36,18 +36,6 @@ h1 {
   justify-content: center;
 }
 
-.app__chart-wrapper {
-  padding: 18px 9px;
-  height: 100%;
-  width: 100%;
-}
-
 .app__form {
   text-align: center;
-}
-
-@media screen and (min-width: 700px) {
-  .app__chart-wrapper {
-    width: 40%;
-  }
 }

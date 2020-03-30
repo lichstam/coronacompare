@@ -69,54 +69,44 @@ const DeathCharts = ({ confirmed, deaths, population }: DeathChartProps) => {
 
   return (
     <>
-      <div className="app__chart-wrapper">
-        <BarChart
-          xValues={sortedKeys(zipped(recentConfirmed))}
-          series={series('Deaths', sortedNumbers(recentConfirmed))}
-          title="Number confirmed, absolute numbers"
-        />
-      </div>
-      <div className="app__chart-wrapper">
-        <BarChart
-          xValues={sortedKeys(zipped(recentConfirmedPerCapita))}
-          series={series('Deaths', sortedNumbers(recentConfirmedPerCapita))}
-          title="Number confirmed per 100.000"
-        />
-      </div>
-      <div className="app__chart-wrapper">
-        <BarChart
-          xValues={sortedKeys(zipped(recentDeaths))}
-          series={series('Deaths', sortedNumbers(recentDeaths))}
-          title="Number of deaths, absolute numbers"
-        />
-      </div>
-      <div className="app__chart-wrapper">
-        <BarChart
-          xValues={sortedKeys(zipped(recentDeathsPerCapita))}
-          series={series('Deaths per 100k', sortedNumbers(recentDeathsPerCapita))}
-          title="Number of deaths per 100.000"
-        />
-      </div>
-      <div className="app__chart-wrapper">
-        <h1>Coronavirus Estimations</h1>
-        <h5>
-          An estimation based on a 1% fatality rate and the current death numbers in various countries.
-        </h5>
-        <p>
-          It is important to bear in mind that
-          there is a time lag from the moment someone becomes infected to the day they pass away of up to four weeks.
-          This means that the number of infections are probably much higher. See these numbers as
-          {' '}
-          <strong>minimum</strong>
-          {' '}
-          amount of infected.
-        </p>
-        <BarChart
-          xValues={sortedKeys(zipped(infectedEstimation))}
-          series={series('Estimated real infections', sortedNumbers(infectedEstimation))}
-          title="Estimated real cases infected"
-        />
-      </div>
+      <BarChart
+        xValues={sortedKeys(zipped(recentConfirmed))}
+        series={series('Deaths', sortedNumbers(recentConfirmed))}
+        title="Number confirmed, absolute numbers"
+      />
+      <BarChart
+        xValues={sortedKeys(zipped(recentConfirmedPerCapita))}
+        series={series('Deaths', sortedNumbers(recentConfirmedPerCapita))}
+        title="Number confirmed per 100.000"
+      />
+      <BarChart
+        xValues={sortedKeys(zipped(recentDeaths))}
+        series={series('Deaths', sortedNumbers(recentDeaths))}
+        title="Number of deaths, absolute numbers"
+      />
+      <BarChart
+        xValues={sortedKeys(zipped(recentDeathsPerCapita))}
+        series={series('Deaths per 100k', sortedNumbers(recentDeathsPerCapita))}
+        title="Number of deaths per 100.000"
+      />
+      <h1>Coronavirus Estimations</h1>
+      <h5>
+        An estimation based on a 1% fatality rate and the current death numbers in various countries.
+      </h5>
+      <p>
+        It is important to bear in mind that
+        there is a time lag from the moment someone becomes infected to the day they pass away of up to four weeks.
+        This means that the number of infections are probably much higher. See these numbers as
+        {' '}
+        <strong>minimum</strong>
+        {' '}
+        amount of infected.
+      </p>
+      <BarChart
+        xValues={sortedKeys(zipped(infectedEstimation))}
+        series={series('Estimated real infections', sortedNumbers(infectedEstimation))}
+        title="Estimated real cases infected"
+      />
     </>
   );
 };

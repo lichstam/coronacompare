@@ -1,0 +1,12 @@
+.chart-wrapper {
+  padding: 18px 9px;
+  height: 100%;
+  width: 95%;
+}
+
+@media screen and (min-width: 700px) {
+  .chart-wrapper {
+    width: 40%;
+  }
+}
+

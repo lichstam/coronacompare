@@ -26,9 +26,7 @@ const DeathsByAgeChart = ({ deathsByAge }: DeathsByAgeChartProps) => {
   }];
 
   return (
-    <div>
-      <BarChart xValues={ages} title="Deaths by Age Group (Swedish Labels)" series={series} />
-    </div>
+    <BarChart xValues={ages} title="Deaths by Age Group (Swedish Labels)" series={series} />
   );
 };
 

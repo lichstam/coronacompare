@@ -1,6 +1,7 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import ChartWrapper from '../ChartWrapper';
 import countries from './countries';
 import {
   getPureData,
@@ -125,7 +126,7 @@ const CoronaCharts = ({ confirmed }: { confirmed: any[] }) => {
         const countryData = findCountryData(country);
         const pureCountry = getPureData(countryData);
         return (
-          <div key={country} className="app__chart-wrapper">
+          <ChartWrapper key={country}>
             <CoronaChart
               baseCountry="Italy"
               country={country}
@@ -133,7 +134,7 @@ const CoronaCharts = ({ confirmed }: { confirmed: any[] }) => {
               countryData={removeDuplicates(removeZeros(stringToNumbers(pureCountry)))
                 .slice(offset)}
             />
-          </div>
+          </ChartWrapper>
         );
       })}
     </>

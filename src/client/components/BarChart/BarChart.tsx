@@ -4,6 +4,7 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import ChartWrapper from '../ChartWrapper';
 
 interface BarChartProps {
   xValues: string[]
@@ -25,7 +26,6 @@ const BarChart = ({
     chart: {
       backgroundColor: 'transparent',
       type: 'bar',
-      width: 450,
     },
     series,
     yAxis: {
@@ -43,10 +43,12 @@ const BarChart = ({
   };
 
   return (
-    <HighchartsReact
-      highcharts={Highcharts}
-      options={options}
-    />
+    <ChartWrapper>
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={options}
+      />
+    </ChartWrapper>
   );
 };
 
