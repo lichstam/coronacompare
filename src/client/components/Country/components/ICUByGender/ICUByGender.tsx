@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BarChart from '../../../BarChart';
 
 interface ICUByGenderProps {
-  ICUGender: any[]
+  ICUGender: Record<string, any>
 }
 
 const ConfirmedVsICUTreated = ({ ICUGender }: ICUByGenderProps) => {

@@ -9,7 +9,7 @@ interface BarChartProps {
   xValues: string[]
   title: string
   series: {}
-  opts: {}
+  opts?: {}
 }
 
 const BarChart = ({

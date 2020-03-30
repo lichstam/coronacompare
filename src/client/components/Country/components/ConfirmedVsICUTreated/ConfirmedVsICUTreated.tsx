@@ -7,13 +7,13 @@ interface ConfirmedVsICUTreatedProps {
 }
 
 const ConfirmedVsICUTreated = ({ confirmed }: ConfirmedVsICUTreatedProps) => {
-  const [ICU, setICU] = useState([]);
+  const [ICU, setICU] = useState<Record<string, any>>({});
 
   useEffect(() => {
     getSweICUTimeseries().then(setICU);
   }, []);
 
-  const rows = ICU.Rows || [];
+  const rows = ICU?.Rows || [];
 
   const dates = rows.map((item) => item[0]);
   const ICUPatients = rows.map((item) => +item[2]);
