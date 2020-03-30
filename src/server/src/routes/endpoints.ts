@@ -4,8 +4,9 @@ import {
   getPopulation,
   getSwedishDeaths,
   getSwedishConfirmed,
-  getSwedishICU,
   getSwedishDeathsByAge,
+  getSwedishICUByGender,
+  getSwedishICUTimeseries,
 } from '../utils';
 
 export default [
@@ -14,6 +15,7 @@ export default [
   { fn: getDeaths, endpoint: '/deaths' },
   { fn: getSwedishDeaths, endpoint: '/swedish-deaths' },
   { fn: getSwedishConfirmed, endpoint: '/swedish-confirmed' },
-  { fn: getSwedishICU, endpoint: '/swedish-icu' },
   { fn: getSwedishDeathsByAge, endpoint: '/swedish-deaths-by-age' },
+  { fn: getSwedishICUByGender, endpoint: '/swedish-icu-by-gender' },
+  { fn: getSwedishICUTimeseries, endpoint: '/swedish-icu-time-series' },
 ];
