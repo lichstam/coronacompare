@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { getSweConfirmed, getSweDeaths } from '../../../../api';
+import React from 'react';
 import { getDayMinus } from '../../../../utils';
 
-const Scores = () => {
-  const [confirmed, setConfirmed] = useState([]);
-  const [deaths, setDeaths] = useState([]);
-
-  useEffect(() => {
-    getSweDeaths().then(setDeaths);
-    getSweConfirmed().then(setConfirmed);
-  }, []);
-
+const Scores = ({ deaths, confirmed }) => {
   const Box = ({ children }) => (
-    <div className="box">{children}</div>
+    <div className="scores__box">{children}</div>
   );
 
   const yesterday = getDayMinus(1);
@@ -22,40 +13,40 @@ const Scores = () => {
   const totals = confirmed[confirmed.length - 1];
 
   const totalScores = [
-    <div className="country__totals">
+    <div className="scores__totals">
       <h2>New Cases Today</h2>
-      <strong className="country__score">{ totalsDaily?.Today }</strong>
-      <p className="country__sub-score">
+      <strong className="scores__score">{ totalsDaily?.Today }</strong>
+      <p className="scores__sub-score">
         Yesterday:
         {' '}
         { totals && totalsDaily[yesterday.toString()] }
       </p>
     </div>,
-    <div className="country__totals">
+    <div className="scores__totals">
       <h2>Total Confirmed</h2>
-      <strong className="country__score">{ totals?.Today }</strong>
+      <strong className="scores__score">{ totals?.Today }</strong>
     </div>,
-    <div className="country__totals">
+    <div className="scores__totals">
       <h2>Deaths Today</h2>
-      <strong className="country__score">{ totalsDailyDeaths?.Today }</strong>
-      <p className="country__sub-score">
+      <strong className="scores__score">{ totalsDailyDeaths?.Today }</strong>
+      <p className="scores__sub-score">
         Yesterday:
         {' '}
         { totalsDeaths && totalsDailyDeaths[yesterday.toString()] }
       </p>
     </div>,
-    <div className="country__totals">
+    <div className="scores__totals">
       <h2>Total Deaths</h2>
-      <strong className="country__score">{ totalsDeaths?.Today }</strong>
+      <strong className="scores__score">{ totalsDeaths?.Today }</strong>
     </div>,
   ];
 
   return (
-    <>
+    <div className="scores">
       {totalScores.map((item, i) => (
         <Box key={i}>{ item }</Box>
       ))}
-    </>
+    </div>
   );
 };
 
