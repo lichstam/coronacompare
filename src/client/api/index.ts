@@ -24,3 +24,4 @@ export const getSweDeaths = () => getData('swedish-deaths');
 export const getSweDeathsByAge = () => getData('swedish-deaths-by-age');
 export const getSweICU = () => getData('swedish-icu-by-gender');
 export const getSweICUTimeseries = () => getData('swedish-icu-time-series');
+export const getSweICUByGender = () => getData('swedish-icu-by-gender');
