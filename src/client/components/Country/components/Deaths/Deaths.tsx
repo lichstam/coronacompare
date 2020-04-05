@@ -1,7 +1,7 @@
 import React from 'react';
 import BarChart from '../../../BarChart';
 
-type ScoresProps = { deaths: [] }
+type ScoresProps = { deaths: any[] }
 
 const Scores = ({ deaths }: ScoresProps) => {
   const totalsDailyDeaths = deaths[deaths.length - 2] || [];

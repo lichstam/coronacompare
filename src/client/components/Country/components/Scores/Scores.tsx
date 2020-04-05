@@ -1,7 +1,7 @@
 import React from 'react';
 import { getDayMinus } from '../../../../utils';
 
-type ScoresProps = { confirmed: [], deaths: [] }
+type ScoresProps = { confirmed: any[], deaths: any[] }
 
 const Scores = ({ deaths, confirmed }: ScoresProps) => {
   const Box = ({ children }) => (
