@@ -19,7 +19,7 @@ const Deaths = ({ deaths }: DeathsProps) => {
   }];
 
   return (
-    <BarChart xValues={lastTwentyDays} title="New Death Cases Per Day" series={series} />
+    <BarChart xValues={lastTwentyDays} title="New Deaths Cases Per Day" series={series} />
   );
 };
 
