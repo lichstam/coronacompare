@@ -22,14 +22,14 @@ const ConfirmedVsICUTreated = ({ confirmed }: ConfirmedVsICUTreatedProps) => {
 
   const series = [{
     name: 'Confirmed',
-    data: confirmedCases.reverse(),
+    data: confirmedCases.slice(-20).reverse(),
     dataLabels: {
       crop: false,
       enabled: true,
     },
   }, {
     name: 'ICU Patients',
-    data: ICUPatients.reverse(),
+    data: ICUPatients.slice(-20).reverse(),
     dataLabels: {
       crop: false,
       enabled: true,
@@ -37,7 +37,7 @@ const ConfirmedVsICUTreated = ({ confirmed }: ConfirmedVsICUTreatedProps) => {
   }];
 
   return (
-    <BarChart xValues={dates.reverse()} title="Confirmed Cases and ICU Patients" series={series} />
+    <BarChart xValues={dates.slice(-20).reverse()} title="Confirmed Cases and ICU Patients" series={series} />
   );
 };
 

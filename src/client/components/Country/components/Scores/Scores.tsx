@@ -1,7 +1,9 @@
 import React from 'react';
 import { getDayMinus } from '../../../../utils';
 
-const Scores = ({ deaths, confirmed }) => {
+type ScoresProps = { confirmed: [], deaths: [] }
+
+const Scores = ({ deaths, confirmed }: ScoresProps) => {
   const Box = ({ children }) => (
     <div className="scores__box">{children}</div>
   );
@@ -28,7 +30,9 @@ const Scores = ({ deaths, confirmed }) => {
     </div>,
     <div className="scores__totals">
       <h2>Deaths Today</h2>
-      <strong className="scores__score">{ totalsDailyDeaths?.Today }</strong>
+      <div>
+        <strong className="scores__score">{ totalsDailyDeaths?.Today }</strong>
+      </div>
       <p className="scores__sub-score">
         Yesterday:
         {' '}

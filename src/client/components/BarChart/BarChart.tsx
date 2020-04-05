@@ -24,6 +24,7 @@ const BarChart = ({
     legend: { enabled: false },
     title: { text: title },
     chart: {
+      height: 600,
       backgroundColor: 'transparent',
       type: 'bar',
     },

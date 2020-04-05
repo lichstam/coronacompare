@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Scores from './components/Scores';
 import DeathsByAgeChart from './components/DeathsByAgeChart';
 import ConfirmedVsICUTreated from './components/ConfirmedVsICUTreated';
+import Deaths from './components/Deaths';
 import ICUByGender from './components/ICUByGender';
 import {
   getSweConfirmed,
@@ -26,6 +27,7 @@ const Country = ({ match }) => {
   return (
     <div className="country">
       <Scores confirmed={confirmed} deaths={deaths} />
+      <Deaths deaths={deaths} />
       <ConfirmedVsICUTreated confirmed={confirmed} />
       <ICUByGender ICUGender={ICUGender} />
       <DeathsByAgeChart deathsByAge={deathsByAge} />
