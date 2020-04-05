@@ -32,6 +32,7 @@ const App = () => {
       </div>
       <div className="app" id="page-wrap">
         <h1>Coronavirus Confirmed and Deaths</h1>
+        <span className="app__swedish-report" onClick={handleClick}>Click here for Sweden specific report</span>
         <div className="app__wrapper" id="confirmed-deaths">
           <DeathCharts confirmed={confirmed} deaths={deaths} population={population} />
         </div>

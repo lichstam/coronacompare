@@ -39,3 +39,7 @@ h1 {
 .app__form {
   text-align: center;
 }
+
+.app__swedish-report {
+  cursor: pointer;
+}
