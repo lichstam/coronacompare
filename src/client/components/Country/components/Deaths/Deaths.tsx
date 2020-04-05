@@ -1,9 +1,9 @@
 import React from 'react';
 import BarChart from '../../../BarChart';
 
-type ScoresProps = { deaths: any[] }
+type DeathsProps = { deaths: any[] }
 
-const Scores = ({ deaths }: ScoresProps) => {
+const Deaths = ({ deaths }: DeathsProps) => {
   const totalsDailyDeaths = deaths[deaths.length - 2] || [];
   const dateKeys = Object.keys(totalsDailyDeaths).filter((key) => key.includes('2020'));
   const lastTwentyDays = dateKeys.slice(-20).reverse();
@@ -23,4 +23,4 @@ const Scores = ({ deaths }: ScoresProps) => {
   );
 };
 
-export default Scores;
+export default Deaths;
