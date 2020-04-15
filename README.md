@@ -1,3 +1,3 @@
 # Coronalation
 
-Covid stats
+Covid stats. Feel free to contribute :)
