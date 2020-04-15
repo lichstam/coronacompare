@@ -4,7 +4,7 @@ import BarChart from '../../../BarChart';
 type DeathsProps = { deaths: any[] }
 
 const Deaths = ({ deaths }: DeathsProps) => {
-  const totalsDailyDeaths = deaths[deaths.length - 2] || [];
+  const totalsDailyDeaths = deaths.find(({ Region }) => Region === 'Todays_Total') || [];
   const dateKeys = Object.keys(totalsDailyDeaths).filter((key) => key.includes('2020'));
   const lastTwentyDays = dateKeys.slice(-20).reverse();
   const numbersOfDeaths = lastTwentyDays.map((day) => +totalsDailyDeaths[day]);

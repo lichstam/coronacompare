@@ -9,8 +9,9 @@ const Scores = ({ deaths, confirmed }: ScoresProps) => {
   );
 
   const yesterday = getDayMinus(1);
-  const totalsDailyDeaths = deaths[deaths.length - 2];
-  const totalsDeaths = deaths[deaths.length - 1];
+
+  const totalsDailyDeaths = deaths.find(({ Region }) => Region === 'Todays_Total');
+  const totalsDeaths = deaths.find(({ Region }) => Region === 'Total');
   const totalsDaily = confirmed[confirmed.length - 2];
   const totals = confirmed[confirmed.length - 1];
 
