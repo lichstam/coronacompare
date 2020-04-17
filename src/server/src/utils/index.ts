@@ -6,3 +6,4 @@ export { default as getSwedishConfirmed } from './get-swedish-confirmed';
 export { default as getSwedishDeathsByAge } from './get-swedish-deaths-by-age';
 export { default as getSwedishICUByGender } from './get-swedish-icu-by-gender';
 export { default as getSwedishICUTimeseries } from './get-swedish-icu-cases-time-series';
+export { default as getSwedishICUCurrentCasesPerDay } from './get-swedish-icu-current-cases-per-day';

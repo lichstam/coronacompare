@@ -7,6 +7,7 @@ import {
   getSwedishDeathsByAge,
   getSwedishICUByGender,
   getSwedishICUTimeseries,
+  getSwedishICUCurrentCasesPerDay,
 } from '../utils';
 
 export default [
@@ -18,4 +19,5 @@ export default [
   { fn: getSwedishDeathsByAge, endpoint: '/swedish-deaths-by-age' },
   { fn: getSwedishICUByGender, endpoint: '/swedish-icu-by-gender' },
   { fn: getSwedishICUTimeseries, endpoint: '/swedish-icu-time-series' },
+  { fn: getSwedishICUCurrentCasesPerDay, endpoint: '/swedish-icu-current-cases-per-day' },
 ];
