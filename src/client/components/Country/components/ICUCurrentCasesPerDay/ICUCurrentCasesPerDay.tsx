@@ -10,7 +10,7 @@ const ICUCurrentCasesPerDay = ({ ICUCurrentCasesPerDay: ICUData }: ICUCurrentCas
   const dates = [];
   const rows = ICUData?.Rows || [];
 
-  rows.forEach((item) => {
+  rows.slice(-30).forEach((item) => {
     const [date, dailyCase] = item;
     dates.unshift(date);
     cases.unshift(+dailyCase);
